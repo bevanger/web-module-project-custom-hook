@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 
+import useDarkMode from "./hooks/useDarkMode"; //2. useDarkMode is a hook (function)
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
 
@@ -10,7 +11,8 @@ import "./styles.scss";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  //1. calling useDarkMode with the arguments "darkMode", false
+  const [darkMode, setDarkMode] = useDarkMode("darkMode", false); //18. const [darkMode, setDarkMode] === [darkMode we returned (item or false), setDarkMode (a function to update darkMode)]
 
   useEffect(() => {
     axios
